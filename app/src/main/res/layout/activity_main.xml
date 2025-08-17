@@ -7,13 +7,116 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/verdeFondo"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="Registro de Usuario"
+                android:textColor="@color/verdeOscuro"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/verdeOscuro"
+                android:drawableStart="@drawable/user"
+                android:hint="Nombre"
+                android:padding="12dp"
+                android:textColor="@color/verdeOscuro"
+                android:textColorHint="@color/grisTexto" />
+
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/verdeOscuro"
+                android:drawableStart="@drawable/correo"
+                android:hint="Correo"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/verdeOscuro"
+                android:textColorHint="@color/grisTexto" />
+
+            <EditText
+                android:id="@+id/etContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/verdeOscuro"
+                android:drawableStart="@drawable/pass"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="@color/verdeOscuro"
+                android:textColorHint="@color/grisTexto" />
+
+            <RadioGroup
+                android:id="@+id/rgGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+
+                <RadioButton
+                    android:id="@+id/rbMasculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masculino"
+                    android:textColor="@color/verdeOscuro" />
+
+                <RadioButton
+                    android:id="@+id/rbFemenino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Femenino"
+                    android:textColor="@color/verdeOscuro" />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/cbTerminos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:text="Acepto términos y condiciones"
+                android:textColor="@color/verdeOscuro" />
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/verdePrincipal"
+                android:drawableStart="@drawable/check"
+                android:text="Registrar"
+                android:textColor="@color/blanco" />
+
+            <Button
+                android:id="@+id/btnVerUsuarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/verdeOscuro"
+                android:drawableStart="@drawable/list"
+                android:text="Ver Registros"
+                android:textColor="@color/blanco" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

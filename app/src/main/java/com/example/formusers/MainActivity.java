@@ -1,24 +1,69 @@
 package com.example.formusers;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.*;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText etNombre, etCorreo, etContrasena;
+    RadioGroup rgGenero;
+    CheckBox cbTerminos;
+    Button btnRegistrar, btnVerUsuarios;
+
+    static ArrayList<String[]> listaUsuarios = new ArrayList<>(); // Guardamos usuarios [nombre, correo, genero]
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        etNombre = findViewById(R.id.etNombre);
+        etCorreo = findViewById(R.id.etCorreo);
+        etContrasena = findViewById(R.id.etContrasena);
+        rgGenero = findViewById(R.id.rgGenero);
+        cbTerminos = findViewById(R.id.cbTerminos);
+        btnRegistrar = findViewById(R.id.btnRegistrar);
+        btnVerUsuarios = findViewById(R.id.btnVerUsuarios);
+
+        btnRegistrar.setOnClickListener(v -> registrarUsuario());
+        btnVerUsuarios.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, VerUsersActivity.class);
+            startActivity(intent);
         });
+    }
+
+    private void registrarUsuario() {
+        String nombre = etNombre.getText().toString();
+        String correo = etCorreo.getText().toString();
+        String contrasena = etContrasena.getText().toString();
+
+        int selectedId = rgGenero.getCheckedRadioButtonId();
+        RadioButton rbSeleccionado = findViewById(selectedId);
+
+        if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty() || selectedId == -1) {
+            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!cbTerminos.isChecked()) {
+            Toast.makeText(this, "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String genero = rbSeleccionado.getText().toString();
+
+        // Guardamos en el ArrayList
+        listaUsuarios.add(new String[]{nombre, correo, genero});
+
+        Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+
+        etNombre.setText("");
+        etCorreo.setText("");
+        etContrasena.setText("");
+        rgGenero.clearCheck();
+        cbTerminos.setChecked(false);
     }
 }
