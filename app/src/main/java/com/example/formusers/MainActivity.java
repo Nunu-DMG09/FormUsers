@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         String genero = rbSeleccionado.getText().toString();
 
-        // Guardamos en el ArrayList
+        // Guardar en el ArrayList
         listaUsuarios.add(new String[]{nombre, correo, genero});
 
         Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();

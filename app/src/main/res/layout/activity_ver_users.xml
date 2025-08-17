@@ -43,7 +43,7 @@
                 </TableRow>
             </TableLayout>
 
-            <!-- Botón Atrás -->
+
             <Button
                 android:id="@+id/btnAtras"
                 android:layout_width="match_parent"

@@ -44,7 +44,7 @@ public class VerUsers extends AppCompatActivity {
         btnAtras.setOnClickListener(v -> {
             Intent intent = new Intent(VerUsers.this, MainActivity.class);
             startActivity(intent);
-            finish(); // cierra la activity actual
+            finish();
         });
     }
 
