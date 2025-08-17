@@ -115,6 +115,16 @@
                 android:text="Ver Registros"
                 android:textColor="@color/blanco" />
 
+            <Button
+                android:id="@+id/btnSalir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/rojoSalir"
+                android:drawableStart="@drawable/salir"
+                android:text="Salir"
+                android:textColor="@color/blanco" />
+
         </LinearLayout>
     </ScrollView>
 

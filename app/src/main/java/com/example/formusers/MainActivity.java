@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnRegistrar.setOnClickListener(v -> registrarUsuario());
         btnVerUsuarios.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, VerUsersActivity.class);
+            Intent intent = new Intent(MainActivity.this, VerUsers.class);
             startActivity(intent);
         });
     }

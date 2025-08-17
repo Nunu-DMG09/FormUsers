@@ -7,4 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".VerUsers">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/verdeFondo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuarios Registrados"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/verdeOscuro"
+                android:gravity="center"
+                android:paddingBottom="16dp"/>
+
+            <TableLayout
+                android:id="@+id/tableUsuarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@color/blanco"
+                android:padding="8dp">
+
+                <TableRow>
+                    <TextView android:text="Nombre" android:textStyle="bold" android:padding="8dp" android:textColor="@color/verdePrincipal"/>
+                    <TextView android:text="Correo" android:textStyle="bold" android:padding="8dp" android:textColor="@color/verdePrincipal"/>
+                    <TextView android:text="Género" android:textStyle="bold" android:padding="8dp" android:textColor="@color/verdePrincipal"/>
+                </TableRow>
+            </TableLayout>
+
+            <!-- Botón Atrás -->
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Atrás"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/rojoSalir"
+                android:textColor="@color/blanco"
+                android:drawableStart="@drawable/salir"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

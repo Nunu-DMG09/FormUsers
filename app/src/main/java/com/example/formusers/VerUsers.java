@@ -1,24 +1,51 @@
 package com.example.formusers;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.os.Bundle;
+import android.widget.*;
+import android.content.Intent;
 
 public class VerUsers extends AppCompatActivity {
+
+    TableLayout tableUsuarios;
+    Button btnAtras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ver_users);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        tableUsuarios = findViewById(R.id.tableUsuarios);
+        btnAtras = findViewById(R.id.btnAtras);
+
+        for (String[] usuario : MainActivity.listaUsuarios) {
+            TableRow row = new TableRow(this);
+
+            TextView tvNombre = new TextView(this);
+            tvNombre.setText(usuario[0]);
+            tvNombre.setPadding(8, 8, 8, 8);
+
+            TextView tvCorreo = new TextView(this);
+            tvCorreo.setText(usuario[1]);
+            tvCorreo.setPadding(8, 8, 8, 8);
+
+            TextView tvGenero = new TextView(this);
+            tvGenero.setText(usuario[2]);
+            tvGenero.setPadding(8, 8, 8, 8);
+
+            row.addView(tvNombre);
+            row.addView(tvCorreo);
+            row.addView(tvGenero);
+
+            tableUsuarios.addView(row);
+        }
+
+        // Botón Atrás
+        btnAtras.setOnClickListener(v -> {
+            Intent intent = new Intent(VerUsers.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // cierra la activity actual
         });
     }
+
 }
