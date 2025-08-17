@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNombre, etCorreo, etContrasena;
     RadioGroup rgGenero;
     CheckBox cbTerminos;
-    Button btnRegistrar, btnVerUsuarios;
+    Button btnRegistrar, btnSalir, btnVerUsuarios;
 
     static ArrayList<String[]> listaUsuarios = new ArrayList<>(); // Guardamos usuarios [nombre, correo, genero]
 
@@ -27,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
         cbTerminos = findViewById(R.id.cbTerminos);
         btnRegistrar = findViewById(R.id.btnRegistrar);
         btnVerUsuarios = findViewById(R.id.btnVerUsuarios);
+        btnSalir = findViewById(R.id.btnSalir);
 
         btnRegistrar.setOnClickListener(v -> registrarUsuario());
         btnVerUsuarios.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, VerUsers.class);
             startActivity(intent);
+        });
+
+        btnSalir.setOnClickListener(v -> {
+            finishAffinity();
         });
     }
 
